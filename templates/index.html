@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Activity Generator</title>
+</head>
+<body>
+    <h1>Activity Generator</h1>
+    <form action="/activity" method="POST">
+        <label for="accessibility">Accessibility:</label><br>
+        <select id="accessibility" name="accessibility" >
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+        <br><br>
+        <label for="type">Type:</label><br>
+        <select id="type" name="type" value="">
+            <option value="education">Education</option>
+            <option value="recreational">Recreational</option>
+            <option value="social">Social</option>
+            <option value="diy">DIY</option>
+            <option value="charity">Charity</option>
+            <option value="cooking">Cooking</option>
+            <option value="relaxation">Relaxation</option>
+            <option value="music">Music</option>
+            <option value="busywork">Busywork</option>
+        </select>
+        <br><br>
+        <label for="participants">Participants:</label><br>
+        <input type="number" id="participants" name="participants" value="">
+        <br><br>
+        <label for="price">Price:</label><br>
+        <input type="range" id="price" name="price" min="0" max="1" step="0.01" value="">
+        <output id="price-output" for="price"></output>
+        <br><br>
+        <input type="submit" value="Generate">
+    </form>
+
+    <script>
+        const priceSlider = document.getElementById('price');
+        const priceOutput = document.getElementById('price-output');
+
+        priceOutput.textContent = priceSlider.value; // Display the default slider value
+
+        // Update the current slider value (each time you drag the slider handle)
+        priceSlider.oninput = function() {
+            priceOutput.textContent = this.value;
+        }
+    </script>
+</body>
+</html>
